@@ -83,7 +83,7 @@
   .hero-silhouette svg { width: 280px; height: auto; }
 
   .nav {
-    position: relative; z-index: 10;
+    position: relative;
     display: flex; align-items: center; justify-content: space-between;
     padding: 28px 60px;
   }
@@ -113,6 +113,81 @@
   }
 
   .nav-links a:hover { color: var(--gold); }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 110;
+    padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .burger span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .burger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .burger.active span:nth-child(2) { opacity: 0; }
+  .burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(10,8,6,0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-menu.open {
+    display: flex;
+    opacity: 1;
+  }
+
+  .mobile-menu-inner {
+    text-align: center;
+    padding: 40px 24px;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .mobile-links {
+    list-style: none;
+    margin-bottom: 40px;
+  }
+
+  .mobile-links li { margin-bottom: 8px; }
+
+  .mobile-links a {
+    display: block;
+    padding: 14px 20px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    transition: color 0.2s, background 0.2s;
+    border-radius: 6px;
+  }
+
+  .mobile-links a:hover { color: var(--gold); background: rgba(212,175,55,0.08); }
 
   .hero-content {
     position: relative; z-index: 10;
@@ -1167,10 +1242,15 @@
     footer { flex-direction: column; gap: 24px; text-align: center; }
   }
 
+  @media (max-width: 1500px) {
+    .nav-links { display: none; }
+    .burger { display: flex; }
+    .cta-btn { display: none; }
+  }
+
   @media (max-width: 768px) {
     section { padding: 64px 24px; }
     .nav { padding: 18px 24px; }
-    .nav-links { display: none; }
     .hero-content { padding: 28px 24px 64px; max-width: 100%; }
     .hero-scroll { left: 24px; }
     .hero h1 { font-size: 34px; }
@@ -1226,8 +1306,23 @@
       <li><a href="#b2b">Для школ и ЖК</a></li>
       <li><a href="#booking">Записаться</a></li>
     </ul>
-    <a href="#booking" class="btn-gold" style="padding:12px 24px;font-size:13px;">Записаться</a>
+    <a href="#booking" class="btn-gold cta-btn" style="padding:12px 24px;font-size:13px;">Записаться</a>
+    <button class="burger" id="burger-btn" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-inner">
+      <ul class="mobile-links">
+        <li><a href="#program">О программе</a></li>
+        <li><a href="#teacher">Преподаватель</a></li>
+        <li><a href="#pricing">Абонементы</a></li>
+        <li><a href="#b2b">Для школ и ЖК</a></li>
+      </ul>
+      <a href="#booking" class="btn-gold" style="width:100%;text-align:center;">Записаться</a>
+    </div>
+  </div>
 
   <div class="hero-content">
     <div class="hero-inner">
@@ -1913,9 +2008,43 @@ b2bOverlay.addEventListener('click', e => { if (e.target === b2bOverlay) closeB2
 // Close on overlay click
 overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
 
-// Close on Escape
+// ── BURGER MENU ──
+const burgerBtn = document.getElementById('burger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+function toggleMenu() {
+  const isOpen = mobileMenu.classList.toggle('open');
+  burgerBtn.classList.toggle('active');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+  burgerBtn.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+burgerBtn.addEventListener('click', toggleMenu);
+
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', e => {
+    closeMenu();
+    const href = a.getAttribute('href');
+    if (href === '#booking') {
+      e.preventDefault();
+      openModal();
+    }
+  });
+});
+
+mobileMenu.addEventListener('click', e => {
+  if (e.target === mobileMenu) closeMenu();
+});
+
+// Close on Escape (integrated)
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
+    if (mobileMenu.classList.contains('open')) { closeMenu(); return; }
     if (overlay.style.display === 'flex') closeModal();
     if (b2bOverlay.style.display === 'flex') closeB2bModal();
   }
