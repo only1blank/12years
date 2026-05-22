@@ -23,7 +23,7 @@
     --ff-body: 'Montserrat', sans-serif;
   }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
 
   body {
     font-family: var(--ff-body);
@@ -153,8 +153,6 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
-    width: 100vw;
-    height: 100vh;
   }
 
   .mobile-menu.open {
@@ -1289,6 +1287,12 @@
   .footer-links a:hover { color: var(--gold); }
 
   /* ─── RESPONSIVE ─── */
+  @media (max-width: 1370px) {
+    .nav-links { display: none; }
+    .burger { display: flex; }
+    .cta-btn { display: none; }
+  }
+
   @media (max-width: 1200px) {
     .pricing-grid { grid-template-columns: repeat(2, 1fr); max-width: 800px; }
     .price-card { padding: 32px 24px; }
@@ -1306,15 +1310,10 @@
     .reviews-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
     .merch-inner { grid-template-columns: 1fr; gap: 48px; }
     .merch-form-wrap { grid-template-columns: 1fr; }
-    .hero-photo-placeholder { display: none; }
+    .hero-photo-placeholder { display: none !important; }
+    .cta-social--desktop { display: none !important; }
     .cta-social--mobile { display: flex; flex-wrap: wrap; justify-content: center; }
     footer { flex-direction: column; gap: 24px; text-align: center; }
-  }
-
-  @media (max-width: 1370px) {
-    .nav-links { display: none; }
-    .burger { display: flex; }
-    .cta-btn { display: none; }
   }
 
   @media (max-width: 768px) {
@@ -1324,6 +1323,7 @@
     .hero-scroll { left: 24px; }
     .hero h1 { font-size: 34px; }
     .price-amount { font-size: 36px; }
+    .pricing-grid { max-width: 100%; }
     .teacher-inner { grid-template-columns: 1fr; }
     .teacher-photo { aspect-ratio: 1/1; max-width: 320px; margin: 0 auto; }
     .booking-form-grid { grid-template-columns: 1fr; }
