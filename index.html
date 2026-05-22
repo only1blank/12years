@@ -1147,6 +1147,10 @@
   .footer-links a:hover { color: var(--gold); }
 
   /* ─── RESPONSIVE ─── */
+  @media (max-width: 1200px) {
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @media (max-width: 1024px) {
     section { padding: 72px 36px; }
     .nav { padding: 22px 36px; }
@@ -1372,7 +1376,7 @@
   <div class="pricing-header">
     <div class="section-tag">Абонементы</div>
     <h2 class="section-title">Выберите формат занятий</h2>
-    <p class="section-sub" style="margin: 18px auto 0; text-align: center;">Все абонементы включают хореографию, танец и моделинг. Без скрытых платежей.</p>
+    <p class="section-sub" style="margin: 18px auto 0; text-align: center;">Три направления в одном!</p>
   </div>
 
   <div class="pricing-grid">
@@ -1382,9 +1386,8 @@
       <div class="price-amount">2 500 <span style="font-size:24px;">₽</span></div>
       <div class="price-period">Одно занятие</div>
       <ul class="price-features">
-        <li>1 занятие на выбор</li>
-        <li>Хореография, танец или моделинг</li>
-        <li>Без абонемента</li>
+        <li>1,5 часа</li>
+        <li>Хореография + танец + моделинг</li>
       </ul>
       <a href="#booking" class="btn-gold">Записаться</a>
     </div>
@@ -1396,6 +1399,7 @@
       <div class="price-amount">9 000 <span style="font-size:24px;">₽</span></div>
       <div class="price-period">4 занятия / месяц</div>
       <ul class="price-features">
+        <li>1,5 часа</li>
         <li>4 занятия в месяц</li>
         <li>Хореография + танец + моделинг</li>
         <li>Малые группы (до 8 чел.)</li>
@@ -1410,10 +1414,10 @@
       <div class="price-amount">16 000 <span style="font-size:24px;">₽</span></div>
       <div class="price-period">8 занятий / месяц</div>
       <ul class="price-features">
+        <li>1,5 часа</li>
         <li>8 занятий в месяц</li>
         <li>Хореография + танец + моделинг</li>
         <li>Малые группы (до 8 чел.)</li>
-        <li>Отчётный концерт</li>
       </ul>
       <a href="#booking" class="btn-gold">Записаться</a>
     </div>
@@ -1424,6 +1428,7 @@
       <div class="price-amount"><span style="font-size:18px;font-weight:400;">от</span> 4 000 <span style="font-size:24px;">₽</span></div>
       <div class="price-period">час</div>
       <ul class="price-features">
+        <li>1,5 часа</li>
         <li>Индивидуальная программа</li>
         <li>Удобное время</li>
         <li>Обсуждается индивидуально</li>
