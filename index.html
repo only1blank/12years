@@ -658,8 +658,10 @@
 
   .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
   .price-card {
@@ -1288,7 +1290,8 @@
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 1200px) {
-    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); max-width: 800px; }
+    .price-card { padding: 32px 24px; }
   }
 
   @media (max-width: 1024px) {
@@ -1308,7 +1311,7 @@
     footer { flex-direction: column; gap: 24px; text-align: center; }
   }
 
-  @media (max-width: 1700px) {
+  @media (max-width: 1370px) {
     .nav-links { display: none; }
     .burger { display: flex; }
     .cta-btn { display: none; }
@@ -1591,7 +1594,7 @@
       <div class="featured-badge">Популярный</div>
       <div class="price-name">Абонемент на 4 занятия</div>
       <div class="price-amount">9 000 <span style="font-size:24px;">₽</span></div>
-      <div class="price-period">4 занятия / месяц</div>
+      <div class="price-period">1 месяц</div>
       <ul class="price-features">
         <li>1,5 часа</li>
         <li>4 занятия в месяц</li>
@@ -1606,28 +1609,57 @@
     <div class="price-card">
       <div class="price-name">Абонемент на 8 занятий</div>
       <div class="price-amount">16 000 <span style="font-size:24px;">₽</span></div>
-      <div class="price-period">8 занятий / месяц</div>
+      <div class="price-period">1 месяц</div>
       <ul class="price-features">
         <li>1,5 часа</li>
         <li>8 занятий в месяц</li>
+        <li>Хореография + танец + моделинг</li>
+        <li>Малые группы (до 8 чел.)</li>
+        <li>Срок действия — 1 месяц</li>
+      </ul>
+      <a href="#booking" class="btn-gold">Записаться</a>
+    </div>
+
+    <!-- На 12 занятий -->
+    <div class="price-card">
+      <div class="price-name">Абонемент на 12 занятий</div>
+      <div class="price-amount">24 000 <span style="font-size:24px;">₽</span></div>
+      <div class="price-period">3 месяца, 1 раз в неделю</div>
+      <ul class="price-features">
+        <li>1,5 часа</li>
+        <li>12 занятий за 3 месяца</li>
         <li>Хореография + танец + моделинг</li>
         <li>Малые группы (до 8 чел.)</li>
       </ul>
       <a href="#booking" class="btn-gold">Записаться</a>
     </div>
 
-    <!-- Индивидуальные -->
+    <!-- На 24 занятия -->
     <div class="price-card">
-      <div class="price-name">Индивидуальные занятия</div>
-      <div class="price-amount"><span style="font-size:18px;font-weight:400;">от</span> 4 000 <span style="font-size:24px;">₽</span></div>
-      <div class="price-period">час</div>
+      <div class="price-name">Абонемент на 24 занятия</div>
+      <div class="price-amount">45 000 <span style="font-size:24px;">₽</span></div>
+      <div class="price-period">3 месяца, 2 раза в неделю</div>
       <ul class="price-features">
         <li>1,5 часа</li>
+        <li>24 занятия за 3 месяца</li>
+        <li>Хореография + танец + моделинг</li>
+        <li>Малые группы (до 8 чел.)</li>
+      </ul>
+      <a href="#booking" class="btn-gold">Записаться</a>
+    </div>
+
+    <!-- Индивидуальное -->
+    <div class="price-card">
+      <div class="price-name">Индивидуальное занятие</div>
+      <div class="price-amount">4 000 <span style="font-size:24px;">₽</span></div>
+      <div class="price-period">Час</div>
+      <ul class="price-features">
+        <li>1 час</li>
         <li>Индивидуальная программа</li>
         <li>Удобное время</li>
         <li>Обсуждается индивидуально</li>
       </ul>
-      <a href="#booking" class="btn-gold">Узнать</a>
+      <a href="#booking" class="btn-gold">Записаться</a>
     </div>
   </div>
 
