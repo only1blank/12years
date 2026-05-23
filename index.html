@@ -1258,8 +1258,20 @@
     color: rgba(255,255,255,0.45);
     padding: 48px 60px;
     display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .footer-top {
+    display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 
   .footer-logo {
@@ -1285,6 +1297,8 @@
   }
 
   .footer-links a:hover { color: var(--gold); }
+
+  .footer-map { width: 100%; }
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 1100px) {
@@ -1313,7 +1327,7 @@
     .hero-photo-placeholder { display: none !important; }
     .cta-social--desktop { display: none !important; }
     .cta-social--mobile { display: flex; flex-wrap: wrap; justify-content: center; flex-shrink: 0; flex-direction: column; }
-    footer { flex-direction: column; gap: 24px; text-align: center; }
+    .footer-top { flex-direction: column; text-align: center; gap: 16px; }
   }
 
   @media (max-width: 768px) {
@@ -2047,15 +2061,26 @@
      FOOTER
 ════════════════════════════════════════════ -->
 <footer>
-  <div class="footer-logo">12years <span>Studio</span></div>
-  <p class="footer-copy">© 2026 12years Studio.</p>
-  <ul class="footer-links">
-    <li><a href="#program">О программе</a></li>
-    <li><a href="#teacher">Преподаватель</a></li>
-    <li><a href="#pricing">Абонементы</a></li>
-    <li><a href="#b2b">Занятия у Вас. <br>Сотрудничество</a></li>
-    <li><a href="#booking">Контакты</a></li>
-  </ul>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">12years <span>Studio</span></div>
+      <p class="footer-copy">© 2026 12years Studio.</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#program">О программе</a></li>
+      <li><a href="#teacher">Преподаватель</a></li>
+      <li><a href="#pricing">Абонементы</a></li>
+      <li><a href="#b2b">Занятия у Вас. <br>Сотрудничество</a></li>
+      <li><a href="#booking">Контакты</a></li>
+    </ul>
+  </div>
+  <div class="footer-map">
+    <div style="position:relative;overflow:hidden;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.3);max-width:100%;">
+      <a href="https://yandex.ru/maps/213/moscow/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Москва</a>
+      <a href="https://yandex.ru/maps/213/moscow/house/potapovskiy_pereulok_3s1/Z04YcANgSEYPQFtvfXt3c35kYw==/?ll=37.640138%2C55.762277&utm_medium=mapframe&utm_source=maps&z=17.12" style="color:#eee;font-size:12px;position:absolute;top:14px;">Потаповский переулок, 3с1 — Яндекс Карты</a>
+      <iframe src="https://yandex.ru/map-widget/v1/?ll=37.640138%2C55.762277&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjcyMjQ2OBJJ0KDQvtGB0YHQuNGPLCDQnNC-0YHQutCy0LAsINCf0L7RgtCw0L_QvtCy0YHQutC40Lkg0L_QtdGA0LXRg9C70L7QuiwgM9GBMSIKDYCPFkIVkgxfQg%2C%2C&z=17.12" width="560" height="400" frameborder="0" allowfullscreen="true" style="position:relative;width:100%;"></iframe>
+    </div>
+  </div>
 </footer>
 
 
